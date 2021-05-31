@@ -1,7 +1,10 @@
-package com.example.bankapp.ui.login
+package com.example.bankapp.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+
+
+
+
 }

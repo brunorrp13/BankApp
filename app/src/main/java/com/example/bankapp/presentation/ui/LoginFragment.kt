@@ -1,4 +1,4 @@
-package com.example.bankapp.ui.login
+package com.example.bankapp.presentation.ui
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -7,13 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.bankapp.R
+import com.example.bankapp.presentation.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
@@ -22,6 +18,7 @@ class LoginFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.login_fragment, container, false)
     }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
