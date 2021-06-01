@@ -71,7 +71,7 @@
             android:backgroundTint="@color/white"
             android:fontFamily="@font/helvetica_400"
             android:hint="@string/password_hint"
-            android:inputType="textCapSentences"
+            android:inputType="textPassword"
             android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
