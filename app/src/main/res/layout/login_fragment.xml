@@ -9,26 +9,17 @@
     tools:ignore="ExtraText">
 
 
-    <TextView
+    <ImageView
         android:id="@+id/bankLogo"
-        android:layout_width="125dp"
-        android:layout_height="70dp"
-        android:gravity="center"
-        android:textStyle="bold"
+        android:layout_width="179dp"
+        android:layout_height="77dp"
         android:layout_marginTop="56dp"
-        android:background="@drawable/ic_shape"
-        android:fontFamily="@font/helvetica_400"
+        android:background="@drawable/solutis"
+        android:gravity="center"
         android:padding="5dp"
-        android:textSize="45sp"
-        android:text="@string/bank"
-
-
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-
         />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -76,16 +67,17 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_subscriber"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="216dp"
         android:fontFamily="@font/helvetica_400"
         android:text="@string/login_btn"
+        app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="@id/input_layout_email"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/input_layout_email"
         app:layout_constraintTop_toBottomOf="@id/input_layout_email" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

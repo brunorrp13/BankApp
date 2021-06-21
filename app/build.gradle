@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.fragment:fragment:1.2.5'
     def nav_version = "2.3.5"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -54,6 +55,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     // Gson
     implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
