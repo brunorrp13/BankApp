@@ -1,11 +1,9 @@
-package com.example.bankapp.api
+package com.example.bankapp.data.api
 
 import com.example.bankapp.data.model.Extrato
 import com.example.bankapp.data.repository.statement.ExtratoRemoteDataSource
 import com.example.bankapp.data.repository.statement.ExtratoRemoteDataSourceImpl
 import com.example.bankapp.data.repository.statement.ExtratoRepositoryImpl
-import com.example.bankapp.data.repository.user.AuthRemote
-import com.example.bankapp.data.repository.user.AuthRemoteImpl
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify

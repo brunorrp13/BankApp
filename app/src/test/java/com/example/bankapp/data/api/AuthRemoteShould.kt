@@ -1,4 +1,4 @@
-package com.example.bankapp.api
+package com.example.bankapp.data.api
 
 import com.example.bankapp.data.repository.user.AuthRemote
 import com.example.bankapp.data.repository.user.AuthRemoteImpl

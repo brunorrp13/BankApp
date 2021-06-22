@@ -1,6 +1,6 @@
 package com.example.bankapp.data.repository.statement
 
-import com.example.bankapp.api.ExtratoAPIService
+import com.example.bankapp.data.api.ExtratoAPIService
 import com.example.bankapp.data.model.Extrato
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

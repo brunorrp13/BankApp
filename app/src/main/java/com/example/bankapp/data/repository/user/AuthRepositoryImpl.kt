@@ -9,10 +9,7 @@ class AuthRepositoryImpl(
     private val authRemote: AuthRemote
 ): AuthRepository {
 
-    override suspend fun login(username: String, password: String): Resource<LoginResponse> {
-       return APIConverter.responseToResourceLogin (
-           authRemote.login(username, password)
-       )
-    }
+    override suspend fun login(username: String, password: String): LoginResponse =
+       authRemote.login(username, password)
 
 }

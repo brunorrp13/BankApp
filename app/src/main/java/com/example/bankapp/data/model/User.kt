@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class User(
 
     @SerializedName("cpf")
-    val cpf: String,
+    val username: String,
     @SerializedName("nome")
-    val nome: String
+    val password: String
 
 )

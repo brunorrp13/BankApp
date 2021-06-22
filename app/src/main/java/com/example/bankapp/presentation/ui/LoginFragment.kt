@@ -1,16 +1,27 @@
 package com.example.bankapp.presentation.ui
 
-import androidx.lifecycle.ViewModelProvider
+import android.R.attr
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.bankapp.R
+import com.example.bankapp.data.model.User
+import com.example.bankapp.databinding.LoginFragmentBinding
 import com.example.bankapp.presentation.viewmodel.LoginViewModel
+import com.example.bankapp.storage.SharedPrefManager
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class LoginFragment : Fragment() {
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var loginFragmentBinding: LoginFragmentBinding
+//    private lateinit var viewModel: LoginViewModel
+//    var user: User = SharedPrefManager.getInstance(requireActivity())?.user as User
+//    var hasLoggedIn = SharedPrefManager.getInstance(requireActivity())?.hasLoggedIn!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,11 +30,41 @@ class LoginFragment : Fragment() {
         return inflater.inflate(R.layout.login_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loginFragmentBinding  = LoginFragmentBinding.bind(view)
+//        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
+//        setLogin()
+        validateAccess()
     }
 
+//    private fun setLogin() {
+//        if (hasLoggedIn) {
+//            loginFragmentBinding.inputUser.setText(user.username)
+//            loginFragmentBinding.inputPassword.setText(user.password)
+//        }
+//    }
+
+    private fun validateAccess() {
+        loginFragmentBinding.btnLogin.setOnClickListener {
+        if (isValidPassword(loginFragmentBinding.inputPassword.toString().trim())) {
+            Toast.makeText(activity, "Validado", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(activity, "A senha deve ter pelo menos uma letra maiuscula, um caracter especial e um caracter alfanumérico", Toast.LENGTH_SHORT).show();
+        }
+      }
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val pattern: Pattern
+        val matcher: Matcher
+
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        matcher = pattern.matcher(attr.password.toString())
+
+        return matcher.matches()
+    }
 }
