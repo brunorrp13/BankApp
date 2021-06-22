@@ -1,15 +1,15 @@
 package com.example.bankapp.data.repository.user
 
-import com.example.bankapp.data.api.UsersAPIService
+import com.example.bankapp.api.UserAPIService
 import com.example.bankapp.data.model.LoginResponse
 import retrofit2.Response
 
 class UserRemoteDataSourceImpl (
-    private val usersAPIService: UsersAPIService,
+    private val userAPIService: UserAPIService,
     ): UserRemoteDataSource {
 
     override suspend fun login(username: String, password: String): Response<LoginResponse> {
-        return usersAPIService.login(username, password)
+        return userAPIService.login(username, password)
     }
 
 }

@@ -1,6 +1,6 @@
 package com.example.bankapp.data.repository.statement
 
-import com.example.bankapp.data.api.StatementsAPIService
+import com.example.bankapp.api.StatementsAPIService
 import com.example.bankapp.data.model.Extrato
 import retrofit2.Response
 

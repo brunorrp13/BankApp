@@ -1,0 +1,22 @@
+[
+  {
+    "data": "2021-05-02T10:11:15Z",
+    "descricao": "PIX Abraão Fer",
+    "valor": 230.45
+  },
+  {
+    "data": "2021-05-02T10:15:10Z",
+    "descricao": "PIX Mirele Silva",
+    "valor": 50.3
+  },
+  {
+    "data": "2021-05-03T16:15:10Z",
+    "descricao": "Pagamento de Conta",
+    "valor": -190.3
+  },
+  {
+    "data": "2021-05-05T16:15:10Z",
+    "descricao": "Pagamento de Conta",
+    "valor": -280.52
+  }
+]

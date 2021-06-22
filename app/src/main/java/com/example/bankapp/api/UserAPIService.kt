@@ -1,4 +1,4 @@
-package com.example.bankapp.data.api
+package com.example.bankapp.api
 
 import com.example.bankapp.data.model.LoginResponse
 import retrofit2.Response
@@ -6,10 +6,10 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
-interface UsersAPIService {
+interface UserAPIService {
 
     @FormUrlEncoded
-    @POST("userLogin")
+    @POST("login")
     suspend fun login(
         @Field("username") user: String,
         @Field("password") password: String,
