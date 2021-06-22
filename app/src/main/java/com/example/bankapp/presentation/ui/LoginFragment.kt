@@ -1,18 +1,14 @@
 package com.example.bankapp.presentation.ui
 
-import android.R.attr
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.bankapp.R
-import com.example.bankapp.data.model.User
 import com.example.bankapp.databinding.LoginFragmentBinding
-import com.example.bankapp.presentation.viewmodel.LoginViewModel
-import com.example.bankapp.storage.SharedPrefManager
+import com.example.tasks.view.validation.TextUtils
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -48,22 +44,27 @@ class LoginFragment : Fragment() {
 
     private fun validateAccess() {
         loginFragmentBinding.btnLogin.setOnClickListener {
-        if (isValidPassword(loginFragmentBinding.inputPassword.toString().trim())) {
-            Toast.makeText(activity, "Validado", Toast.LENGTH_SHORT).show();
+        val username = loginFragmentBinding.inputUserName.text.toString().trim()
+        val password = loginFragmentBinding.inputPassword.text.toString().trim()
+
+        if (!(TextUtils.isValidCPF(username) || TextUtils.isValidEmail(username))){
+          Toast.makeText(activity, "Preencha E-mail ou CPF válido", Toast.LENGTH_SHORT).show();
+        } else if (!isValidPassword(password)) {
+          Toast.makeText(activity, "A senha deve ter pelo menos uma letra maiuscula, um caracter especial e um caracter alfanumérico", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(activity, "A senha deve ter pelo menos uma letra maiuscula, um caracter especial e um caracter alfanumérico", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "OK", Toast.LENGTH_SHORT).show();
         }
-      }
-    }
+     }
+  }
 
     private fun isValidPassword(password: String): Boolean {
         val pattern: Pattern
         val matcher: Matcher
 
-        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+*!¨=])(?=\\S+$).{4,}$"
 
         pattern = Pattern.compile(PASSWORD_PATTERN)
-        matcher = pattern.matcher(attr.password.toString())
+        matcher = pattern.matcher(password)
 
         return matcher.matches()
     }

@@ -9,18 +9,16 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import com.example.bankapp.data.model.User
 import com.example.bankapp.domain.login.usecase.LoginUseCase
-import com.example.bankapp.storage.SharedPrefManager
-
 class LoginViewModel (
     private val app: Application,
     private val loginUseCase: LoginUseCase
         ) : AndroidViewModel(app)  {
 
-      fun login(user: User) {
-       SharedPrefManager.getInstance(app)?.saveUser(user)
-
-
-    }
+//      fun login(user: User) {
+//       SharedPrefManager.getInstance(app)?.saveUser(user)
+//
+//
+//    }
 
 
 
