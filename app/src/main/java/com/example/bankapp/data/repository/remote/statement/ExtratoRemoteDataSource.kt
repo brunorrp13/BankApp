@@ -1,9 +1,7 @@
-package com.example.bankapp.data.repository.statement
+package com.example.bankapp.data.repository.remote.statement
 
 import com.example.bankapp.data.model.Extrato
-import com.example.bankapp.data.model.ExtratoItem
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Response
 
 interface ExtratoRemoteDataSource {
 

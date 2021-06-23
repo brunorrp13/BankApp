@@ -1,4 +1,4 @@
-package com.example.bankapp.data.repository.statement
+package com.example.bankapp.data.repository.remote.statement
 
 import com.example.bankapp.data.api.ExtratoAPIService
 import com.example.bankapp.data.model.Extrato

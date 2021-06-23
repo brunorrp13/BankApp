@@ -1,18 +1,17 @@
 package com.example.bankapp.data.api
 
 import com.example.bankapp.data.model.LoginResponse
+import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 interface UserAPIService {
 
-    @FormUrlEncoded
+    @Headers("Content-Type: application/json")
     @POST("login")
-    suspend fun login(
-        @Field("username") user: String,
-        @Field("password") password: String,
+    fun login(
+        @Body user: RequestBody
     ): Call<LoginResponse>
 
 }

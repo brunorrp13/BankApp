@@ -1,4 +1,4 @@
-package com.example.bankapp.data.repository
+package com.example.bankapp.data.repository.remote
 
 import com.example.tasks.service.constants.TaskConstants
 import okhttp3.Interceptor
@@ -13,8 +13,7 @@ class RetrofitClient {
 
         private lateinit var retrofit: Retrofit
         private const val BASE_URL = "https://api.mobile.test.solutis.xyz/"
-        private var personKey: String = ""
-        private var tokenKey: String = ""
+        private var authToken: String = ""
 
         private fun getRetrofitInstance(): Retrofit {
 
@@ -24,8 +23,7 @@ class RetrofitClient {
                     val request =
                         chain.request()
                             .newBuilder()
-                            .addHeader(TaskConstants.HEADER.PERSON_KEY, personKey)
-                            .addHeader(TaskConstants.HEADER.TOKEN_KEY, tokenKey)
+                            .addHeader(TaskConstants.HEADER.TOKEN_KEY, authToken)
                             .build()
                     return chain.proceed(request)
                 }
@@ -41,13 +39,13 @@ class RetrofitClient {
             return retrofit
         }
 
-        fun addHeaders(person: String, token: String) {
-            personKey = person
-            tokenKey = token
+        fun addHeaders(token: String) {
+            authToken = token
         }
 
         fun <S> createService(serviceClass: Class<S>): S {
             return getRetrofitInstance().create(serviceClass)
         }
+
     }
 }

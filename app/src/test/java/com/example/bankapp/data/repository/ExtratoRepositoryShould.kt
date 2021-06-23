@@ -1,8 +1,8 @@
 package com.example.bankapp.data.repository
 
 import com.example.bankapp.data.model.Extrato
-import com.example.bankapp.data.repository.statement.ExtratoRemoteDataSource
-import com.example.bankapp.data.repository.statement.ExtratoRepositoryImpl
+import com.example.bankapp.data.repository.remote.statement.ExtratoRemoteDataSource
+import com.example.bankapp.data.repository.remote.statement.ExtratoRepositoryImpl
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify

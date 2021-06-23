@@ -1,12 +1,11 @@
 package com.example.bankapp.domain.login.usecase
 
 import com.example.bankapp.data.model.LoginResponse
-import com.example.bankapp.data.util.Resource
-import com.example.bankapp.domain.login.repository.AuthRepository
+import com.example.bankapp.data.repository.remote.user.LoginRepository
 import com.example.tasks.service.listener.APIListener
 
-class LoginUseCase (private val authRepository: AuthRepository) {
+class LoginUseCase (private val loginRepository: LoginRepository) {
 
-    suspend fun execute(user: String, password: String,listener: APIListener<LoginResponse>) = authRepository.login(user, password, listener)
+    fun execute(user: String, password: String, listener: APIListener<LoginResponse>) = loginRepository.login(user, password, listener)
 
 }
