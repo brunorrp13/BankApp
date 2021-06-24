@@ -1,7 +1,7 @@
 # BankApp
 Aplicativo "bancário" fictício com uma arquitetura de software limpa, utilizando o que há de mais recente nos componentes da arquitetura Android, Kotlin Coroutines e outras bibliotecas modernas.
 
-O usuário pode fazer o login (o aplicativo criará e salvará o acesso em "Shared Preferences") demonstrando na tela seguinte obter uma lista com suas contas bancárias; navegue no histórico de transações da conta; depositar / retirar para / da conta poupança;
+O usuário pode fazer o login (o aplicativo criará e salvará o acesso em "Shared Preferences") demonstrando na tela uma lista dos lançamentos de sua contas bancárias.
 
 Componentes de arquitetura usados pelo aplicativo:
 
