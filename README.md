@@ -19,7 +19,7 @@ O aplicativo segue a arquitetura "limpa" e foi dividido em camadas por recurso.
 
 O fluxo geral do aplicativo é:
 
-View se comunica com um ViewModel, então ViewModel executa um UseCase que acessa um repositório. O resultado é trazido de volta à visualização por meio do fluxo de LiveData ou pela retomada de uma coroutine que foi iniciada pela visualização dentro de um escopo de ciclo de vida.
+View se comunica com um ViewModel, então ViewModel executa um UseCase que acessa um repositório (fazendo então a chamada da API na camada de serviços). O resultado é trazido de volta à visualização por meio do fluxo de LiveData ou pela retomada de uma coroutine que foi iniciada pela visualização dentro de um escopo de ciclo de vida.
 
 O aplicativo está usando o Hilt como uma estrutura de injeção de dependência. Cada recurso declara seu próprio módulo que é usado para a construção de todo o gráfico de dependência.
 
