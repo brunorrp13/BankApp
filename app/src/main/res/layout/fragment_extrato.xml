@@ -1,100 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.ExtratoFragment"
-    android:background="@drawable/gradient_background">
+    android:orientation="vertical"
+    tools:context=".presentation.ui.ExtratoFragment">
 
-    <ImageView
-        android:id="@+id/btnLeave"
-        android:background="@drawable/logout"
-        android:backgroundTint="@color/white"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="8dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintLeft_toRightOf="@+id/helloUserTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/helloUserTitle"
-        app:tint="@color/white" />
-
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/helloUserTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Teste" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/accountInfoTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Conta"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/helloUserTitle" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/accountInfoMain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:gravity="start"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
-        tools:text="$32,550" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/accountBalanceTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="12dp"
-        android:text="Saldo"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/accountInfoMain" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/balanceAmountMain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:gravity="start"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountBalanceTitle"
-        tools:text="$32,550" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
+    <RelativeLayout
+        android:id="@+id/topPanel"
         android:layout_width="match_parent"
-        android:layout_height="520dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/recyclerview_model"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/btnLeave"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/helloUserTitle"
+            android:layout_gravity="end"
+            android:background="@drawable/logout"
+            android:backgroundTint="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
+            app:tint="@color/white" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/helloUserTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Teste" />
+
+        <TextView
+            android:id="@+id/accountInfoTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/helloUserTitle"
+            android:layout_marginTop="40dp"
+            android:text="@string/cpf_cnpj"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/helloUserTitle" />
+
+        <TextView
+            android:id="@+id/accountInfoMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/accountInfoTitle"
+            android:layout_marginTop="20dp"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accountInfoTitle"
+            tools:text="$32,550" />
+
+        <TextView
+            android:id="@+id/accountBalanceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/accountInfoMain"
+            android:layout_marginTop="35dp"
+            android:text="@string/saldo"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/accountInfoMain" />
+
+        <TextView
+            android:id="@+id/balanceAmountMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/accountBalanceTitle"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="start"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/accountBalanceTitle"
+            tools:text="$32,550" />
+
+    </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            tools:listitem="@layout/recyclerview_model" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/rv"
+        tools:layout_editor_absoluteX="189dp"
+        />
+
+</LinearLayout>

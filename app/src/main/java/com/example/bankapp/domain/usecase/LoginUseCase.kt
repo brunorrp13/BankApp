@@ -1,4 +1,4 @@
-package com.example.bankapp.domain.login.usecase
+package com.example.bankapp.domain.usecase
 
 import com.example.bankapp.data.model.LoginResponse
 import com.example.bankapp.data.repository.remote.user.LoginRepository

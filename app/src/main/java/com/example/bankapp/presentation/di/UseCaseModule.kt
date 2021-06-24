@@ -1,7 +1,9 @@
 package com.example.bankapp.presentation.di
 
+import com.example.bankapp.data.repository.remote.statement.ExtratoRepository
 import com.example.bankapp.data.repository.remote.user.LoginRepository
-import com.example.bankapp.domain.login.usecase.LoginUseCase
+import com.example.bankapp.domain.usecase.GetExtratoUseCase
+import com.example.bankapp.domain.usecase.LoginUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,8 +17,16 @@ class UseCaseModule {
    @Provides
    fun provideLoginUseCase(
        loginRepository: LoginRepository
-   ):LoginUseCase{
+   ): LoginUseCase {
       return LoginUseCase(loginRepository)
+   }
+
+   @Singleton
+   @Provides
+   fun provideGetExtratoUseCase(
+      extratoRepository: ExtratoRepository
+   ): GetExtratoUseCase {
+      return GetExtratoUseCase(extratoRepository)
    }
 
 }

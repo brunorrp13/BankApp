@@ -2,12 +2,12 @@ package com.example.bankapp.data.repository.remote.user
 
 import android.content.Context
 import com.example.bankapp.R
-import com.example.bankapp.data.api.UserAPIService
+import com.example.bankapp.data.api.APIService
 import com.example.bankapp.data.model.LoginResponse
+import com.example.bankapp.data.repository.remote.BaseRepository
 import com.example.bankapp.data.repository.remote.RetrofitClient
-import com.example.tasks.service.constants.TaskConstants
 import com.example.tasks.service.listener.APIListener
-import com.google.gson.Gson
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 import org.json.JSONObject
 import retrofit2.Call
@@ -16,18 +16,16 @@ import retrofit2.Response
 
 class LoginRepository(
     context: Context
-) {
+): BaseRepository(context) {
 
-    val mContext: Context = context
-    private val mRemote = RetrofitClient.createService(UserAPIService::class.java)
-
-    fun fail(code: Int) = code != TaskConstants.HTTP.SUCCESS
-
-    fun failRespose(respose: String): String {
-        return Gson().fromJson(respose, String::class.java)
-    }
+    private val mRemote = RetrofitClient.createService(APIService::class.java)
 
     fun login(username: String, password: String, listener: APIListener<LoginResponse>) {
+        if (!isConnectionAvailable(mContext)) {
+            listener.onFailure(mContext.getString(R.string.ERROR_INTERNET_CONNECTION))
+            return
+        }
+
         val call: Call<LoginResponse> = mRemote.login(createJsonRequestBody("username" to username,"password" to password))
 
         call.enqueue(object : Callback<LoginResponse> {
@@ -49,7 +47,8 @@ class LoginRepository(
 
     private fun createJsonRequestBody(vararg params: Pair<String, String>) =
         RequestBody.create(
-            okhttp3.MediaType.parse("application/json; charset=utf-8"),
-            JSONObject(mapOf(*params)).toString())
+            "application/json; charset=utf-8".toMediaTypeOrNull(),
+            JSONObject(mapOf(*params)).toString()
+        )
 
 }

@@ -3,16 +3,19 @@ package com.example.bankapp.presentation.viewmodel
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.bankapp.domain.login.usecase.LoginUseCase
+import com.example.bankapp.domain.usecase.GetExtratoUseCase
+import com.example.bankapp.domain.usecase.LoginUseCase
 
-class LoginViewModelFactory (
+class ViewModelFactory (
     private val app: Application,
-    private val useCase: LoginUseCase
+    private val loginUseCase: LoginUseCase,
+    private val extratoUseCase: GetExtratoUseCase
         ) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return LoginViewModel(
+        return ViewModel(
             app,
-            useCase
+            loginUseCase,
+            extratoUseCase
         ) as T
     }
 }

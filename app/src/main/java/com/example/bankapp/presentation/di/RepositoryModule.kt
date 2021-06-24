@@ -1,6 +1,7 @@
 package com.example.bankapp.presentation.di
 
 import android.content.Context
+import com.example.bankapp.data.repository.remote.statement.ExtratoRepository
 import com.example.bankapp.data.repository.remote.user.LoginRepository
 import dagger.Module
 import dagger.Provides
@@ -21,6 +22,13 @@ class RepositoryModule {
         return LoginRepository(context)
     }
 
+    @Singleton
+    @Provides
+    fun provideExtratoRepository(
+        @ApplicationContext context: Context
+    ): ExtratoRepository{
+        return ExtratoRepository(context)
+    }
 }
 
 

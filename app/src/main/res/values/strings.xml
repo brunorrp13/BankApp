@@ -7,4 +7,9 @@
     <string name="ERROR_UNEXPECTED">Erro identificado. Por gentileza, tentar novamente.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ERROR_INTERNET_CONNECTION"><![CDATA["   <string name=\"ERROR_UNEXPECTED\">An unexpected error has occurred. Try again later.</string>  "]]></string>
+    <string name="Pag">Pagamento</string>
+    <string name="Rec">Recebimento</string>
+    <string name="cpf_cnpj">CPF/CNPJ</string>
+    <string name="saldo">Saldo</string>
 </resources>

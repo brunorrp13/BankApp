@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_extratoFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="user_data"
+            app:argType="com.example.bankapp.data.model.LoginResponse" />
     </fragment>
 
 </navigation>

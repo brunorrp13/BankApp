@@ -1,8 +1,9 @@
 package com.example.bankapp.presentation.di
 
 import android.app.Application
-import com.example.bankapp.domain.login.usecase.LoginUseCase
-import com.example.bankapp.presentation.viewmodel.LoginViewModelFactory
+import com.example.bankapp.domain.usecase.GetExtratoUseCase
+import com.example.bankapp.domain.usecase.LoginUseCase
+import com.example.bankapp.presentation.viewmodel.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,13 +15,15 @@ import javax.inject.Singleton
 class FactoryModule {
     @Singleton
     @Provides
-  fun provideLoginViewModelFactory(
+  fun provideViewModelFactory(
      application: Application,
-     loginUseCase: LoginUseCase
-  ):LoginViewModelFactory{
-      return LoginViewModelFactory(
+     loginUseCase: LoginUseCase,
+     getExtratoUseCase: GetExtratoUseCase
+  ):ViewModelFactory{
+      return ViewModelFactory(
           application,
-          loginUseCase
+          loginUseCase,
+          getExtratoUseCase
       )
   }
 

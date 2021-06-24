@@ -1,6 +1,5 @@
 package com.example.bankapp.presentation.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,15 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.bankapp.MainActivity
 import com.example.bankapp.R
 import com.example.bankapp.databinding.LoginFragmentBinding
-import com.example.bankapp.presentation.viewmodel.LoginViewModel
+import com.example.bankapp.presentation.viewmodel.ViewModel
 import com.example.tasks.view.validation.TextUtils
-import java.util.regex.Matcher
-import java.util.regex.Pattern
 
 
 class LoginFragment : Fragment() {
     private lateinit var loginFragmentBinding: LoginFragmentBinding
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,18 +29,10 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loginFragmentBinding  = LoginFragmentBinding.bind(view)
-        viewModel = (activity as MainActivity).loginViewModel
+        viewModel = (activity as MainActivity).viewModel
 
-        observe()
         setLogin()
         validateAccess()
-    }
-
-    private fun observe() {
-        viewModel.login.observe(viewLifecycleOwner, Observer {
-            if (!it.success())
-                Toast.makeText(context, it.failure(), Toast.LENGTH_SHORT).show()
-       })
     }
 
     private fun setLogin() {
@@ -63,11 +52,17 @@ class LoginFragment : Fragment() {
         } else if (!TextUtils.isValidPassword(password)) {
           Toast.makeText(activity, "A senha deve ter pelo menos uma letra maiuscula, um caracter especial e um caracter alfanumérico", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(activity, "OK", Toast.LENGTH_SHORT).show();
-            findNavController().navigate(
-                R.id.action_loginFragment_to_extratoFragment,
-            )
             viewModel.doLogin(username, password)
+
+            viewModel.login.observe(viewLifecycleOwner, Observer {
+                if (it.success()) {
+                    findNavController().navigate(
+                        R.id.action_loginFragment_to_extratoFragment
+                    )
+                } else {
+                    Toast.makeText(context, it.failure(), Toast.LENGTH_SHORT).show()
+                }
+           })
 
         }
      }
