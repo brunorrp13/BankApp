@@ -19,11 +19,11 @@ O aplicativo segue a arquitetura "limpa" e foi dividido em camadas por recurso.
 
 O fluxo geral do aplicativo é:
 
-View se comunica com um ViewModel, então ViewModel executa um UseCase. O resultado é trazido de volta à visualização por meio do fluxo de LiveData ou pela retomada de uma coroutine que foi iniciada pela Visualização dentro de um escopo de ciclo de vida.
+View se comunica com um ViewModel, então ViewModel executa um UseCase que acessa um repositório. O resultado é trazido de volta à visualização por meio do fluxo de LiveData ou pela retomada de uma coroutine que foi iniciada pela visualização dentro de um escopo de ciclo de vida.
 
 O aplicativo está usando o Hilt como uma estrutura de injeção de dependência. Cada recurso declara seu próprio módulo que é usado para a construção de todo o gráfico de dependência.
 
 NOTAS:
 
-- Quando o usuário fizer login, não importa o usuário/senha inseridos, o acesso base já registrado na API para fazer a chamada. 
+- Quando o usuário fizer login, não importa o usuário/senha inseridos, o acesso base já registrado na API será utilizado para fazer a chamada. 
 - Para os testes, o framework "Mockito" foi selecionado pela sua estrutura eficaz e capacidade de cria esboço dos objetos necessários ao invés de instanciá-los de fato, dando controle total sobre esse objeto e suas interações.
